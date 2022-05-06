@@ -29,9 +29,12 @@ class Server:
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """
-        xxxxxx
+        Method that takes two integer arguments and returns a list
+        with the information from the dataset, organized by the
+        page number and the page size given.
         Returns:
-            xxxxxx
+            A list with data according to the page number and the
+            page size.
         """
         assert type(page) == int
         assert type(page_size) == int
@@ -39,16 +42,14 @@ class Server:
         assert page_size > 0
 
         tupl = index_range(page, page_size)
-        #print(tupl)
         start_index = int(tupl[0])
         end_index = int(tupl[1])
-        #print(type(start_index))
         result = Server.dataset(self)
-        print(len(result))
-        print(result[(start_index):(end_index)])
-        #print(type(result))
-        #print(result)
-        #return Server.dataset(self)
+        lenght_list = len(result)
+        if page * page_size > lenght_list:
+            return []
+
+        return result[start_index:end_index]
 
 
 def index_range(page, page_size):
