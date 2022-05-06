@@ -38,9 +38,18 @@ class Server:
         assert page > 0
         assert page_size > 0
 
-        index_range(page, page_size)
-        print(Server.dataset)
-        
+        tupl = index_range(page, page_size)
+        #print(tupl)
+        start_index = int(tupl[0])
+        end_index = int(tupl[1])
+        #print(type(start_index))
+        result = Server.dataset(self)
+        print(len(result))
+        print(result[(start_index):(end_index)])
+        print(type(result))
+        #print(result)
+        #return Server.dataset(self)
+
 
 def index_range(page, page_size):
     """
