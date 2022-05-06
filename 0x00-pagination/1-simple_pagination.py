@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 """
-This project module contains a function that
-takes two integer arguments and returns a tuple.
+This project module contains a class and a function that
+takes two integer arguments and returns a list.
 """
 import csv
-import math
 from typing import List
 
 
