@@ -4,7 +4,7 @@ This project module contains a class and a function that
 takes two integer arguments and returns a list.
 """
 import csv
-from typing import List
+from typing import List, Tuple
 
 
 class Server:
@@ -51,7 +51,7 @@ class Server:
         return result[start_index:end_index]
 
 
-def index_range(page, page_size):
+def index_range(page, page_size) -> Tuple:
     """
     Function that takes two integer arguments and
     returns a tuple.

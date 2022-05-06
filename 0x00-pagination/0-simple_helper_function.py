@@ -3,9 +3,10 @@
 This project module contains a function that
 takes two integer arguments and returns a tuple.
 """
+from typing import Tuple
 
 
-def index_range(page, page_size):
+def index_range(page, page_size) -> Tuple:
     """
     Function that takes two integer arguments and
     returns a tuple.
