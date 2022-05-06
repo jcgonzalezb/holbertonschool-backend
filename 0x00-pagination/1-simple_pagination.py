@@ -46,7 +46,7 @@ class Server:
         result = Server.dataset(self)
         print(len(result))
         print(result[(start_index):(end_index)])
-        print(type(result))
+        #print(type(result))
         #print(result)
         #return Server.dataset(self)
 
