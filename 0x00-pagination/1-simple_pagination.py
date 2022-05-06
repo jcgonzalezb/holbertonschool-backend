@@ -44,8 +44,8 @@ class Server:
         start_index = int(tupl[0])
         end_index = int(tupl[1])
         result = Server.dataset(self)
-        lenght_list = len(result)
-        if page * page_size > lenght_list:
+        length_list = len(result)
+        if page * page_size > length_list:
             return []
 
         return result[start_index:end_index]
