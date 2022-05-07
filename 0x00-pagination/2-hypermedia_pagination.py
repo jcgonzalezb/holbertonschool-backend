@@ -11,7 +11,7 @@ from typing import Dict, List, Tuple
 class Server:
     """Server class to paginate a database of popular baby names.
     """
-    DATA_FILE = "Popular_Baby_Names.csv"
+    DATA_FILE = 'Popular_Baby_Names.csv'
 
     def __init__(self):
         self.__dataset = None
@@ -62,25 +62,25 @@ class Server:
         result = Server.dataset(self)
         length_list = len(result)
 
-        dic_result["page_size"] = page_size
-        dic_result["page"] = page
+        dic_result['page_size'] = page_size
+        dic_result['page'] = page
         data = Server.get_page(self, page, page_size)
         #print(data)
-        dic_result["data"] = data
+        dic_result['data'] = data
 
 
         if page * page_size > length_list:
-            dic_result["next_page"] = None
-        
-        dic_result["next_page"] = page + 1
+            dic_result['next_page'] = None
+        else:
+            dic_result['next_page'] = page + 1
         
         if page == 1:
-            dic_result["prev_page"] = None
-
-        dic_result["prev_page"] = page - 1
+            dic_result['prev_page'] =  None
+        else:
+            dic_result['prev_page'] = page - 1
 
         total_pages = int(length_list / page_size)
-        dic_result["total_pages"] = total_pages
+        dic_result['total_pages'] = total_pages
 
         return dic_result
 
