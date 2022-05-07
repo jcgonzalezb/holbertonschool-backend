@@ -79,8 +79,8 @@ class Server:
         else:
             dic_result['prev_page'] = page - 1
 
-        total_pages = int(length_list / page_size)
-        dic_result['total_pages'] = total_pages
+        total_pages = length_list / page_size
+        dic_result['total_pages'] = math.ceil(total_pages)
 
         return dic_result
 
