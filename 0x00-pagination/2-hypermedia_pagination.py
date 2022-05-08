@@ -5,7 +5,7 @@ takes two integer arguments and returns a dictionary.
 """
 import csv
 import math
-from typing import Dict, List, Tuple
+from typing import Dict, List
 
 
 class Server:
