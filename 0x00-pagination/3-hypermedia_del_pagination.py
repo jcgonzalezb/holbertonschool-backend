@@ -49,9 +49,9 @@ class Server:
         result = Server.dataset(self)
         length_list = len(result)
         page = int(index / page_size)
-        #assert index > (length_list / page_size)
+        assert index < int(length_list / page_size)
         hyper_dict['index'] = index
-        next_index = index + 1
+        next_index = index + page_size
         hyper_dict['next_index'] = next_index
         hyper_dict['page_size'] = page_size
         data = Server.get_page(self, page, page_size)
