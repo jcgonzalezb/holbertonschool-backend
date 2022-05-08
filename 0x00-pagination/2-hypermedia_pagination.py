@@ -5,7 +5,7 @@ takes two integer arguments and returns a dictionary.
 """
 import csv
 import math
-from typing import Dict, List
+from typing import Dict, List, Tuple
 
 
 class Server:
@@ -89,7 +89,7 @@ class Server:
         return dic_result
 
 
-def index_range(page, page_size) -> tuple:
+def index_range(page, page_size) -> Tuple:
     """
     Function that takes two integer arguments and
     returns a tuple.
