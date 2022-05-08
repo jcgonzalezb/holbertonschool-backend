@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 This project module contains a class and a function that
-takes two integer arguments and returns a list.
+takes two integer arguments and returns a dictionary.
 """
 import csv
 import math
