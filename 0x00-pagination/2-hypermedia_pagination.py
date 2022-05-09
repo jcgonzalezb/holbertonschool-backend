@@ -56,7 +56,7 @@ class Server:
         Method that takes two integer arguments and returns a
         dictionary containing several key-value pairs.
         Returns:
-            A dictionary the following key-value pairs: page_size,
+            A dictionary with the following key-value pairs: page_size,
             page, data, next_page, prev_page and total_pages.
 
         """
