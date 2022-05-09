@@ -7,8 +7,8 @@
 1. This project module contains a method that takes two integer arguments and returns a list
 with the information from the dataset, organized by the page number and the page size given.
 2. This project module contains a method that takes two integer arguments and returns a
-dictionary containing several key-value pairs, which are page_size, page, data, next_page, prev_page and total_pages.
-3. This project module contains a method
+dictionary containing several key-value pairs, such as page_size, page, data, next_page, prev_page and total_pages.
+3. This project module contains a method that takes two integer arguments and returns a dictionary containing several key-value pairs, such as index, next_index, page_size and data.
 
 
 ## Languages and Tools:
