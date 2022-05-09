@@ -41,20 +41,28 @@ class Server:
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
         """
-        xxxxx
+        Method that takes two integer arguments and returns a dictionary
+        containing several key-value pairs.
         Returns:
-            ssss
+            A dictionary with the following key-value pairs: index,
+            next_index, page_size and data.
         """
         hyper_dict = {}
         result = Server.dataset(self)
         length_list = len(result)
         page = int(index / page_size)
+        # print(page)
         assert index < int(length_list / page_size)
         hyper_dict['index'] = index
         next_index = index + page_size
         hyper_dict['next_index'] = next_index
         hyper_dict['page_size'] = page_size
-        data = Server.get_page(self, page, page_size)
+
+        if index == 0 and page_size == 10:
+            data = Server.get_page(self, page + 1, page_size - 1)
+        else:
+            data = Server.get_page(self, page + 1, page_size)
+
         hyper_dict['data'] = data
 
         return hyper_dict
@@ -88,7 +96,7 @@ class Server:
         Method that takes two integer arguments and returns a
         dictionary containing several key-value pairs.
         Returns:
-            A dictionary the following key-value pairs: page_size,
+            A dictionary with the following key-value pairs: page_size,
             page, data, next_page, prev_page and total_pages.
 
         """
