@@ -24,16 +24,16 @@ class FIFOCache(BaseCaching):
 
         while len(dict_data) < BaseCaching.MAX_ITEMS:
             dict_data[key] = item
-            #print(dict_data)
             return dict_data
 
-        fi = list(dict_data)[0]
-        dict_data[key] = item
-        key = dict_data.pop(fi)
-        
-        return print("DISCARD: {}".format(fi))
-
-
+        if key not in dict_data:
+            dict_data[key] = item
+            fi = list(dict_data)[0]
+            key = dict_data.pop(fi)
+            print("DISCARD: {}".format(fi))
+        else:
+            dict_data[key] = item
+            return dict_data
 
     def get(self, key):
         """ Get an item by key
