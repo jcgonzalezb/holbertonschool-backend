@@ -22,14 +22,17 @@ class FIFOCache(BaseCaching):
         if key or item is None:
             pass
 
-        if len(dict_data) > BaseCaching.MAX_ITEMS:
-            fi = list(dict_data)[0]
-            key = dict_data.pop(fi)
-            return print("DISCARD: {}".format(fi))
-        else:
+        while len(dict_data) < BaseCaching.MAX_ITEMS:
             dict_data[key] = item
-            print(dict_data)
+            #print(dict_data)
             return dict_data
+
+        fi = list(dict_data)[0]
+        dict_data[key] = item
+        key = dict_data.pop(fi)
+        
+        return print("DISCARD: {}".format(fi))
+
 
 
     def get(self, key):
