@@ -1,11 +1,12 @@
 #!/usr/bin/python3
-""" BaseCaching module
+""" BasicCache module to work with a basic dictionary.
 """
 from base_caching import BaseCaching
 
+
 class BasicCache(BaseCaching):
-    """ BasicCache defines:
-    - It is a caching system
+    """ BasicCache inherits from BaseCaching and
+    is a caching system.
     """
 
     def __init__(self):
@@ -19,7 +20,6 @@ class BasicCache(BaseCaching):
         dict_data = self.cache_data
         dict_data[key] = item
         return dict_data
-
 
     def get(self, key):
         """ Get an item by key
