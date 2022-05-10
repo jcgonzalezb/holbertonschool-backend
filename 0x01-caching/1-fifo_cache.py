@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ FIFOCache module to work with a basic dictionary.
 """
+import re
 from base_caching import BaseCaching
 
 
@@ -19,21 +20,22 @@ class FIFOCache(BaseCaching):
         """
         dict_data = self.cache_data
 
-        if key or item is None:
+        try:
+            while len(dict_data) < BaseCaching.MAX_ITEMS:
+                dict_data[key] = item
+                return dict_data
+
+            if key not in dict_data:
+                dict_data[key] = item
+                fi = list(dict_data)[0]
+                key = dict_data.pop(fi)
+                print("DISCARD: {}".format(fi))
+            else:
+                dict_data[key] = item
+                return dict_data
+        
+        except key or item is None:
             pass
-
-        while len(dict_data) < BaseCaching.MAX_ITEMS:
-            dict_data[key] = item
-            return dict_data
-
-        if key not in dict_data:
-            dict_data[key] = item
-            fi = list(dict_data)[0]
-            key = dict_data.pop(fi)
-            print("DISCARD: {}".format(fi))
-        else:
-            dict_data[key] = item
-            return dict_data
 
     def get(self, key):
         """ Get an item by key
