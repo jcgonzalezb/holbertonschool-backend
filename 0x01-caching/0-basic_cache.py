@@ -13,13 +13,6 @@ class BasicCache(BaseCaching):
         """
         super().__init__()
 
-    def print_cache(self):
-        """ Print the cache
-        """
-        print("Current cache:")
-        for key in sorted(self.cache_data.keys()):
-            print("{}: {}".format(key, self.cache_data.get(key)))
-    
     def put(self, key, item):
         """ Add an item in the cache
         """
