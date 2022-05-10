@@ -18,13 +18,18 @@ class FIFOCache(BaseCaching):
         """ Add an item in the cache
         """
         dict_data = self.cache_data
+
         if key or item is None:
             pass
+
+        if len(dict_data) > BaseCaching.MAX_ITEMS:
+            fi = list(dict_data)[0]
+            key = dict_data.pop(fi)
+            return print("DISCARD: {}".format(fi))
         else:
-            if len(dict_data.keys) > BaseCaching.MAX_ITEMS:
-                item = dict_data.popitem(last = False)
-                key = str(item[0])
-                return print("DISCARD: {}".format(key))
+            dict_data[key] = item
+            print(dict_data)
+            return dict_data
 
 
     def get(self, key):
