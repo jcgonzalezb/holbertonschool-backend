@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" LIFOCacheCache module to work with a basic dictionary.
+""" LIFOCache module to work with a basic dictionary.
 """
 from base_caching import BaseCaching
 
