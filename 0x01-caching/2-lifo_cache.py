@@ -20,7 +20,7 @@ class LIFOCache(BaseCaching):
         dict_data = self.cache_data
         if not (key is None and item is None):
             if (len(dict_data) == BaseCaching.MAX_ITEMS and
-            key not in dict_data):
+                    key not in dict_data):
                 last = sorted(dict_data.keys())[-1]
                 print("DISCARD: {}".format(last))
                 del dict_data[last]
