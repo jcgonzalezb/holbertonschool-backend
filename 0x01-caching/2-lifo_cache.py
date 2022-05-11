@@ -18,39 +18,15 @@ class LIFOCache(BaseCaching):
         """ Add an item in the cache
         """
         dict_data = self.cache_data
-        temp = {}
-
-        try:
-            """
-            if key in temp:
-                del_key = dict_data.pop(key)
-                print("test")
-                print("DISCARD: {}".format(key))"""
-
-            while len(dict_data) < BaseCaching.MAX_ITEMS:
-                dict_data[key] = item
-                return dict_data
-
-            if key not in dict_data:
-                tupl = dict_data.popitem()
-                print("DISCARD: {}".format(tupl[0]))
+        if not (key is None and item is None):
+            if (len(dict_data) == BaseCaching.MAX_ITEMS and
+            key not in dict_data):
+                last = sorted(dict_data.keys())[-1]
+                print("DISCARD: {}".format(last))
+                del dict_data[last]
                 dict_data[key] = item
             else:
                 dict_data[key] = item
-                temp[key] = item
-                print(dict_data)
-                #print(temp)
-
-            if key in temp:
-                del_key = dict_data.pop(key)
-                print("test")
-                print("DISCARD: {}".format(key))
-                dict_data[key] = item
-            return dict_data
-
-
-        except key or item is None:
-            pass
 
     def get(self, key):
         """ Get an item by key
