@@ -19,22 +19,17 @@ class FIFOCache(BaseCaching):
         """
         dict_data = self.cache_data
 
-        try:
-            while len(dict_data) < BaseCaching.MAX_ITEMS:
-                dict_data[key] = item
-                return dict_data
-
-            if key not in dict_data:
-                dict_data[key] = item
-                fi = list(dict_data)[0]
-                key = dict_data.pop(fi)
+        if not (key is None or item is None):
+            if(
+                len(dict_data) == BaseCaching.MAX_ITEMS and
+                key not in dict_data
+            ):
+                fi = sorted(dict_data.keys())[0]
                 print("DISCARD: {}".format(fi))
+                del dict_data[fi]
+                dict_data[key] = item
             else:
                 dict_data[key] = item
-                return dict_data
-
-        except key or item is None:
-            pass
 
     def get(self, key):
         """ Get an item by key
