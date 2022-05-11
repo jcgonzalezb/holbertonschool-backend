@@ -5,7 +5,7 @@ from base_caching import BaseCaching
 
 
 class FIFOCache(BaseCaching):
-    """ BasicCache inherits from BaseCaching and
+    """ FIFOCache inherits from BaseCaching and
     is a caching system.
     """
 
