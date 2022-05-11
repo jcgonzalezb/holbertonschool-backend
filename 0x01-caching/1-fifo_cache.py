@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """ FIFOCache module to work with a basic dictionary.
 """
-import re
 from base_caching import BaseCaching
 
 
@@ -33,7 +32,7 @@ class FIFOCache(BaseCaching):
             else:
                 dict_data[key] = item
                 return dict_data
-        
+
         except key or item is None:
             pass
 
