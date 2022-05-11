@@ -38,6 +38,7 @@ class LIFOCache(BaseCaching):
             else:
                 dict_data[key] = item
                 temp[key] = item
+                print(dict_data)
                 #print(temp)
 
             if key in temp:
@@ -45,7 +46,7 @@ class LIFOCache(BaseCaching):
                 print("test")
                 print("DISCARD: {}".format(key))
                 dict_data[key] = item
-                return dict_data
+            return dict_data
 
 
         except key or item is None:
