@@ -26,11 +26,11 @@ class LIFOCache(BaseCaching):
                 del_key = dict_data.pop(key)
                 print("test")
                 print("DISCARD: {}".format(key))"""
-            
+
             while len(dict_data) < BaseCaching.MAX_ITEMS:
                 dict_data[key] = item
                 return dict_data
-            
+
             if key not in dict_data:
                 tupl = dict_data.popitem()
                 print("DISCARD: {}".format(tupl[0]))
@@ -42,10 +42,11 @@ class LIFOCache(BaseCaching):
 
             if key in temp:
                 del_key = dict_data.pop(key)
-                #print("test")
+                print("test")
                 print("DISCARD: {}".format(key))
                 dict_data[key] = item
-            return dict_data
+                return dict_data
+
 
         except key or item is None:
             pass
