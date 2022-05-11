@@ -25,10 +25,9 @@ class LIFOCache(BaseCaching):
                 return dict_data
 
             if key not in dict_data:
+                tupl = dict_data.popitem()
+                print("DISCARD: {}".format(tupl[0]))
                 dict_data[key] = item
-                fi = list(dict_data)[0]
-                key = dict_data.pop(fi)
-                print("DISCARD: {}".format(fi))
             else:
                 dict_data[key] = item
                 return dict_data
