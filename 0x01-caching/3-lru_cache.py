@@ -19,11 +19,13 @@ class LRUCache(BaseCaching):
         """
         dict_data = self.cache_data
         if not (key is None or item is None):
-            if (len(dict_data) == BaseCaching.MAX_ITEMS and
-                    key not in dict_data):
-                last = sorted(dict_data.keys())[-1]
-                print("DISCARD: {}".format(last))
-                del dict_data[last]
+            if(
+                len(dict_data) == BaseCaching.MAX_ITEMS and
+                key not in dict_data
+            ):
+                fi = sorted(dict_data.keys())[0]
+                print("DISCARD: {}".format(fi))
+                del dict_data[fi]
                 dict_data[key] = item
             else:
                 dict_data[key] = item
