@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-""" LIFOCacheCache module to work with a basic dictionary.
+""" LRUCache module to work with a basic dictionary.
 """
 from base_caching import BaseCaching
 
 
-class LIFOCache(BaseCaching):
-    """ LIFOCache inherits from BaseCaching and
+class LRUCache(BaseCaching):
+    """ LRUCache inherits from BaseCaching and
     is a caching system.
     """
 
