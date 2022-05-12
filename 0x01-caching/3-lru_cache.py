@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-""" LRUCache module to work with a basic dictionary.
+""" MRUCache module to work with a basic dictionary.
 """
 from base_caching import BaseCaching
 
 
-class LRUCache(BaseCaching):
-    """ LRUCache inherits from BaseCaching and
+class MRUCache(BaseCaching):
+    """ MRUCache inherits from BaseCaching and
     is a caching system.
     """
 
@@ -46,4 +46,6 @@ class LRUCache(BaseCaching):
         if key is None or key not in dict_data:
             return None
 
+        self.ordered_cache_keys.remove(key)
+        self.ordered_cache_keys.append(key)
         return dict_data[key]
