@@ -29,7 +29,7 @@ class MRUCache(BaseCaching):
                 del dict_data[mru]
                 dict_data[key] = item
             elif (len(dict_data) == BaseCaching.MAX_ITEMS and
-                    key  in dict_data):
+                    key in dict_data):
                 self.ordered_cache_keys.remove(key)
                 self.ordered_cache_keys.append(key)
                 dict_data[key] = item
