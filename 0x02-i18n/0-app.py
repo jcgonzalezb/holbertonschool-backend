@@ -9,7 +9,7 @@ app = Flask(__name__)
 @app.route('/', methods=("GET", "POST"), strict_slashes=False)
 def index():
     """Function that displays Hello world'"""
-    return "Hello HBNB!"
+    return "Hello world"
 
 if __name__ == '__main__':
     app.run()
