@@ -3,7 +3,7 @@
 Script that starts a basic flask Babel setup
 """
 from flask import Flask, render_template, request
-from flask_babel import Babel
+from flask_babel import Babel, gettext
 
 app = Flask(__name__)
 babel = Babel(app)
@@ -29,6 +29,10 @@ app.config.from_object('1-app.Config')
 def get_locale():
     """Function that determine the best match with supported languages"""
     return request.accept_languages.best_match(app.config['LANGUAGES'])
+
+
+gettext(u'home_title')
+gettext(u'home_header')
 
 
 if __name__ == '__main__':
