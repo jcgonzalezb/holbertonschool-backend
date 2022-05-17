@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Script that starts a basic Flask app
+Script that starts a basic flask Babel setup
 """
 from flask import Flask, render_template
 from flask_babel import Babel
