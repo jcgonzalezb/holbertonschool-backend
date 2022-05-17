@@ -11,8 +11,9 @@ babel = Babel(app)
 
 @app.route('/', methods=("GET", "POST"), strict_slashes=False)
 def index():
-    """Function that displays info from 3-index.html"""
-    return render_template('3-index.html')
+    """Function that displays info from 4-index.html"""
+    return render_template('4-index.html', locale=get_locale()
+                           or babel.default_locale)
 
 
 class Config(object):
@@ -22,14 +23,18 @@ class Config(object):
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
-app.config.from_object('3-app.Config')
+app.config.from_object('4-app.Config')
 
 
 @babel.localeselector
 def get_locale():
     """Function that determine the best match with supported languages"""
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
+    locale = request.args.get('locale')
+    if locale is not None and locale in Config.LANGUAGES:
+        return locale
+    else:
+        return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
