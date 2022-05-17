@@ -23,8 +23,6 @@ class Config(object):
 
 
 app.config.from_object('1-app.Config')
-#app.config['BABEL_DEFAULT_LOCALE'] = 'en'
-#app.config['BABEL_DEFAULT_TIMEZONE'] = 'UTC'
 
 if __name__ == '__main__':
     app.run()
