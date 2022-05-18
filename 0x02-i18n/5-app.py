@@ -13,8 +13,7 @@ babel = Babel(app)
 @app.route('/', methods=("GET", "POST"), strict_slashes=False)
 def index():
     """Function that displays info from 5-index.html"""
-    return render_template('5-index.html', locale=get_locale()
-                           or babel.default_locale)
+    return render_template('5-index.html')
 
 
 class Config(object):
@@ -57,7 +56,8 @@ def get_user():
 
 @app.before_request
 def before_request():
-    """Function that returns an user dictionary"""
+    """Function that find a user if any, and set it
+    as a global on flask.g.user"""
     user = get_user()
     g.user = user
 
