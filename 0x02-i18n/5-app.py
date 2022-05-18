@@ -16,12 +16,6 @@ users = {
 }
 
 
-@app.route('/', methods=("GET", "POST"), strict_slashes=False)
-def index():
-    """Function that displays info from 5-index.html"""
-    return render_template('5-index.html')
-
-
 class Config(object):
     """flask app config Class"""
     LANGUAGES = ['en', 'fr']
@@ -58,6 +52,12 @@ def before_request():
     as a global on flask.g.user"""
     user = get_user()
     g.user = user
+
+
+@app.route('/', methods=("GET", "POST"), strict_slashes=False)
+def index():
+    """Function that displays info from 5-index.html"""
+    return render_template('5-index.html')
 
 
 if __name__ == '__main__':
