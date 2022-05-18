@@ -16,6 +16,12 @@ users = {
 }
 
 
+@app.route('/', methods=("GET", "POST"), strict_slashes=False)
+def index():
+    """Function that displays info from 5-index.html"""
+    return render_template('5-index.html')
+
+
 class Config(object):
     """flask app config Class"""
     LANGUAGES = ['en', 'fr']
@@ -28,7 +34,8 @@ app.config.from_object('5-app.Config')
 
 @babel.localeselector
 def get_locale():
-    """Function that determine the best match with supported languages"""
+    """Function that determine the best match with
+    supported languages"""
     locale = request.args.get('locale')
     if locale is not None and locale in Config.LANGUAGES:
         return locale
@@ -52,12 +59,6 @@ def before_request():
     as a global on flask.g.user"""
     user = get_user()
     g.user = user
-
-
-@app.route('/', methods=("GET", "POST"), strict_slashes=False)
-def index():
-    """Function that displays info from 5-index.html"""
-    return render_template('5-index.html')
 
 
 if __name__ == '__main__':
