@@ -5,6 +5,7 @@ Script that starts a basic mock user login system
 from flask import Flask, render_template, request, g
 from flask_babel import Babel
 from typing import Union
+from os import getenv
 
 users = {
     1: {"name": "Balou", "locale": "fr", "timezone": "Europe/Paris"},
