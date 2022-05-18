@@ -36,12 +36,14 @@ def get_locale():
     else:
         return request.accept_languages.best_match(Config.LANGUAGES)
 
+
 users = {
     1: {"name": "Balou", "locale": "fr", "timezone": "Europe/Paris"},
     2: {"name": "Beyonce", "locale": "en", "timezone": "US/Central"},
     3: {"name": "Spock", "locale": "kg", "timezone": "Vulcan"},
     4: {"name": "Teletubby", "locale": None, "timezone": "Europe/London"},
 }
+
 
 def get_user():
     """Function that returns an user dictionary"""
@@ -52,15 +54,12 @@ def get_user():
     else:
         return None
 
+
 @app.before_request
 def before_request():
     """Function that returns an user dictionary"""
-
-
+    user = get_user()
     g.user = user
-
-
-
 
 
 if __name__ == '__main__':
