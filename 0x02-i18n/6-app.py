@@ -4,6 +4,7 @@ Script that starts a basic mock user login system
 """
 from flask import Flask, render_template, request, g
 from flask_babel import Babel
+from typing import Union
 
 users = {
     1: {"name": "Balou", "locale": "fr", "timezone": "Europe/Paris"},
@@ -39,11 +40,14 @@ def get_locale():
     locale = request.args.get('locale')
     if locale is not None and locale in Config.LANGUAGES:
         return locale
+    elif g.user and g.user.get('locale')\
+            and g.user.get('locale') in app.config['LANGUAGES']:
+        return g.user.get('locale')
     else:
         return request.accept_languages.best_match(Config.LANGUAGES)
 
 
-def get_user():
+def get_user() -> Union[dict, None]:
     """Function that returns an user dictionary"""
     user = request.args.get('login_as')
     key = int(user)
