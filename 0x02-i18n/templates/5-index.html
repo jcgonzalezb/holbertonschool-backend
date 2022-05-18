@@ -5,5 +5,11 @@
     </HEAD>
     <BODY>
         <H1>{{ gettext('home_header') }}</H1>
+
+        <H2>{% if not g.user %}
+                {{ gettext('logged_in_as') }}
+            {% else %}
+                {{ gettext('not_logged_in') }}
+            {% endif %}</H2>
     </BODY>
 </HTML>
