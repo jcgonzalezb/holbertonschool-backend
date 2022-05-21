@@ -3,7 +3,7 @@
 ## Description of the files inside this folder:
 
 
-0. This project module contains a single / route and an index.html template that simply outputs "Welcome to Holberton” as page title (<title>) and “Hello world” as header (<h1>).
+0. This project module contains a single / route and an index.html template that simply outputs "Welcome to Holberton” as page title and “Hello world” as header.
 1. This project module contains a Config class that has a LANGUAGES class attribute equal to ["en", "fr"].
 Use Config to set Babel’s default locale ("en") and timezone ("UTC"). Use that class as config for your Flask app.
 2. This project module contains a get_locale function with the babel.localeselector decorator. Use request.accept_languages to determine the best match with our supported languages.
