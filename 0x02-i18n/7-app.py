@@ -41,8 +41,7 @@ def get_locale():
     locale = request.args.get('locale')
     if locale is not None and locale in Config.LANGUAGES:
         return locale
-    elif g.user and g.user.get('locale')\
-            and g.user.get('locale') in app.config['LANGUAGES']:
+    elif g.user and g.user.get('locale') in app.config['LANGUAGES']:
         return g.user.get('locale')
     else:
         return request.accept_languages.best_match(Config.LANGUAGES)
@@ -50,7 +49,7 @@ def get_locale():
 
 def get_user() -> Union[dict, None]:
     """Function that returns an user dictionary"""
-    user = request.args.get('login_as')
+    user = request.args.get('login_as', False)
     key = int(user)
     if key is not None and key in users:
         return users[key]
