@@ -4,7 +4,7 @@ Script that starts a basic mock user login system
 """
 from flask import Flask, render_template, request, g
 from flask_babel import Babel
-from typing import Union
+from typing import Union, Optional
 import pytz
 
 users = {
@@ -65,7 +65,7 @@ def before_request():
     g.user = user
 
 @babel.timezoneselector
-def get_timezone():
+def get_timezone() -> Optional[str]:
     """ Determines the appropriate user timezone. """
     user_timezone = request.args.get('timezone', None)
     if not user_timezone and g.user:
