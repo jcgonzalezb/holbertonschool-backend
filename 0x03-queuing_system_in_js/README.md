@@ -23,7 +23,7 @@ Add two functions:
 	- It accepts one argument schoolName.
 	- It should log to the console the value for the key passed as argument
 
-At the end of the file, call:
+- At the end of the file, call:
 	- displaySchoolValue('Holberton');
 	- setNewSchool('HolbertonSanFrancisco', '100');
 	- displaySchoolValue('HolbertonSanFrancisco');
@@ -32,7 +32,7 @@ At the end of the file, call:
 3. In a file 2-redis_op_async.js, let’s copy the code from the previous exercise (1-redis_op.js). Using promisify, modify the function displaySchoolValue to use ES6 async / await. Same result as 1-redis_op.js. It
 
 4. In a file named 4-redis_advanced_op.js, let’s use the client to store a hash value
-Create Hash:
+### Create Hash:
 Using hset, let’s store the following:
 - The key of the hash should be HolbertonSchools
 - It should have a value for:
@@ -44,7 +44,7 @@ Using hset, let’s store the following:
 	- Paris=2
 - Make sure you use redis.print for each hset
 
-Display Hash:
+### Display Hash:
 
 Using hgetall, display the object stored in Redis. It should return the following:
 
@@ -54,8 +54,8 @@ Using hgetall, display the object stored in Redis. It should return the followin
 - It should subscribe to the channel holberton school channel
 - When it receives message on the channel holberton school channel, it should log the message to the console
 - When the message is KILL_SERVER, it should unsubscribe and quit
-In a file named 5-publisher.js, create a redis client:
 
+In a file named 5-publisher.js, create a redis client:
 - On connect, it should log the message Redis client connected to the server
 - On error, it should log the message Redis client not connected to the server: ERROR MESSAGE
 - Write a function named publishMessage:
@@ -129,25 +129,27 @@ Create a queue with Kue that will proceed job of the queue push_notification_cod
 	etc.
 
 12. 
-Data
+### Data
 Create an array listProducts containing the list of the following products:
 
 - Id: 1, name: Suitcase 250, price: 50, stock: 4
 - Id: 2, name: Suitcase 450, price: 100, stock: 10
 - Id: 3, name: Suitcase 650, price: 350, stock: 2
 - Id: 4, name: Suitcase 1050, price: 550, stock: 5
-Data access
+
+### Data access
 Create a function named getItemById:
 
 - It will take id as argument
 - It will return the item from listProducts with the same id
-Server
+
+### Server
 Create an express server listening on the port 1245. (You will start it via: npm run dev 9-stock.js)
 
-Products
+### Products
 Create the route GET /list_products that will return the list of every available product with the following JSON format:
 
-In stock in Redis
+### In stock in Redis
 Create a client to connect to the Redis server:
 
 - Write a function reserveStockById that will take itemId and stock as arguments:
@@ -156,11 +158,11 @@ Create a client to connect to the Redis server:
 	- It will return the reserved stock for a specific item
 
 
-Product detail
+### Product detail
 Create the route GET /list_products/:itemId, that will return the current product and the current available stock (by using getCurrentReservedStockById) with the a JSON format.
 
 
-Reserve a product
+### Reserve a product
 Create the route GET /reserve_product/:itemId:
 - If the item does not exist, it should return:
 ```
@@ -176,7 +178,6 @@ bob@dylan:~$ curl localhost:1245/reserve_product/1 ; echo ""
 bob@dylan:~$ 
 
 ```
-
 
 - If there is enough stock available, it should reserve one item (by using reserveStockById), and return:
 ```
